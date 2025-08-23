@@ -11,13 +11,50 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "banner_section_hYhgBX": {
+      "type": "banner-section",
+      "blocks": {
+        "announeement_bar_KnAzjJ": {
+          "type": "announeement-bar",
+          "settings": {
+            "additional_logo": "shopify://shop_images/Group_1000007777.png",
+            "additional_text": "Find the ideal gift for your loved ones.",
+            "additional_link": "#",
+            "additional_link_text": "choose gift"
+          }
+        },
+        "banner_Lp8gzJ": {
+          "type": "banner",
+          "settings": {
+            "additional_banner": "shopify://shop_images/Frame.png",
+            "additional_banner_link": "",
+            "additional_banner_link_text": "Shop Now"
+          }
+        }
+      },
+      "block_order": [
+        "announeement_bar_KnAzjJ",
+        "banner_Lp8gzJ"
+      ],
+      "name": "Custom Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/Frame_1.png",
+        "mobile_image": "shopify://shop_images/Frame_3.png",
+        "banner_heading": "The Gift Guide",
+        "banner_subheading": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "banner_link": "#",
+        "link_text": "Shop Now"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "banner_section_hYhgBX"
   ]
 }
