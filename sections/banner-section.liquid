@@ -1,0 +1,195 @@
+{% comment %}
+  announcement bar section start
+{% endcomment %}
+<div class="banner_announcement_wrapper">
+    <div class="announement_container">
+            <div class="announcemnet_container_box">
+                <div class="announcement_grid">
+                    {% for block in section.blocks %}
+                        <div class="announcement_grid_col">
+                            <div class="announcement_grid_col_box">
+                                {% if block.settings.additional_logo != blank %}
+                                    <div class="announcement_logo">
+                                        <img src="{{ block.settings.additional_logo | img_url: 'medium' }}" alt="Logo" width="" height="">
+                                    </div>
+                                {% endif %}
+                                <div class="announcement_text">
+                                    <p>{{ block.settings.additional_text }}</p>
+                                </div>
+                                {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
+                                    <div class="announcement_link">
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
+</div>
+{% comment %} 
+        announcement bar section end
+{% endcomment %}
+
+{% comment %} banner-1 section start {% endcomment %}
+ {% for block in section.blocks %}
+         <div class="banner-one-wrapper">
+            <div class="banner-one-image-wrapper">
+                {% if block.settings.additional_banner != blank %}
+                        <img src="{{ block.settings.additional_banner | img_url: 'master' }}" alt="Banner Image" class="desktop-banner-image" width="" height="">
+                {% endif %}
+            </div>
+            <div class="banner-one-link-wrapper">
+                {% if block.settings.additional_banner_link != blank %}
+                    <a href="{{ block.settings.additional_banner_link }}" class="banner-link">{{ block.settings.additional_banner_link_text }}</a>
+                {% endif %}
+         </div>
+         </div>
+{%endfor %}
+
+{% comment %} banner-1 section end {% endcomment %}
+{% comment %}banner section start {% endcomment %}
+
+<div class="banner-section-wrapper">
+    <div class="banner-section-grid">
+        <div class="banner-grid-col-1">
+            <div class="banner-grid-container">
+                <div class="banner-grid-text">
+                    <h2>{{ section.settings.banner_heading }}</h2>
+                    <p>{{ section.settings.banner_subheading }}</p>
+                </div>
+                {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
+                    <div class="banner-grid-link">
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">{{ section.settings.link_text }}</a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="banner-grid-col-2">
+            <div class="banner-grid-image-container">
+                {% if section.settings.banner_image != blank %}
+                    <img src="{{ section.settings.banner_image | img_url: 'master' }}" alt="Banner Image" class="desktop-banner-image" width="" height="">
+                {% endif %}
+                {% if section.settings.mobile_image != blank %}
+                    <img src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="Mobile Banner Image" class="mobile-banner-image" width="" height="">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%comment %} banner section end {% endcomment %}
+
+{% comment %} <div class="announcementbar-bottom-wrapper">
+    <div class="announcementbar-bottom-container">
+        {% for block in section.blocks %}
+            <div class="announcementbar-bottom-box">
+                <p>{{ block.settings.additional_text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</div> {% endcomment %}
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "class": "custom-banner-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Desktop Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "Your Banner Title"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subheading",
+      "label": "Banner Subheading",
+      "default": "Your banner subtitle goes here"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Shop Now"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "announeement-bar",
+      "name": "Additional Announcement",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "additional_logo",
+          "label": "Additional Logo"
+        },
+        {
+          "type": "text",
+          "id": "additional_text",
+          "label": "Additional Text",
+          "default": "Some extra information"
+        },
+        {
+          "type": "url",
+          "id": "additional_link",
+          "label": "Additional Link"
+        },
+        {
+          "type": "text",
+          "id": "additional_link_text",
+          "label": "Additional Link Text",
+          "default": "choose gift"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "Additional Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "additional_banner",
+          "label": "Additional Banner"
+        },
+        {
+          "type": "url",
+          "id": "additional_banner_link",
+          "label": "Additional Banner Link"
+        },
+        {
+          "type": "text",
+          "id": "additional_banner_link_text",
+          "label": "Additional Banner Link Text",
+          "default": "Shop Now"
+        }      
+      ]
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner",
+      "category": "Banners"
+    }
+  ]
+}
+{% endschema %}
