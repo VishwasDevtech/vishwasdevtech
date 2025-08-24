@@ -9,15 +9,15 @@
                         <div class="announcement_grid_col">
                             <div class="announcement_grid_col_box">
                                 {% if block.settings.additional_logo != blank %}
-                                    <div class="announcement_logo">
+                                    <div class="announcement_logo" {{ block.shopify_attributes }}>
                                         <img src="{{ block.settings.additional_logo | img_url: 'medium' }}" alt="Logo" width="" height="">
                                     </div>
                                 {% endif %}
-                                <div class="announcement_text">
+                                <div class="announcement_text" {{ block.shopify_attributes }}>
                                     <p>{{ block.settings.additional_text }}</p>
                                 </div>
                                 {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
-                                    <div class="announcement_link">
+                                    <div class="announcement_link" {{ block.shopify_attributes }}>
                                         <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
                                     </div>
                                 {% endif %}
@@ -35,13 +35,13 @@
 
 {% comment %} banner-1 section start {% endcomment %}
  {% for block in section.blocks %}
-         <div class="banner-one-wrapper">
+         <div class="banner-one-wrapper" {{ block.shopify_attributes }}>
             <div class="banner-one-image-wrapper">
                 {% if block.settings.additional_banner != blank %}
                         <img src="{{ block.settings.additional_banner | img_url: 'master' }}" alt="Banner Image" class="desktop-banner-image" width="" height="">
                 {% endif %}
             </div>
-            <div class="banner-one-link-wrapper">
+            <div class="banner-one-link-wrapper" {{ block.shopify_attributes }}>
                 {% if block.settings.additional_banner_link != blank %}
                     <a href="{{ block.settings.additional_banner_link }}" class="banner-link">{{ block.settings.additional_banner_link_text }}</a>
                 {% endif %}
@@ -82,15 +82,16 @@
 
 {%comment %} banner section end {% endcomment %}
 
-{% comment %} <div class="announcementbar-bottom-wrapper">
-    <div class="announcementbar-bottom-container">
+<div class="announcementbar-bottom-wrapper">
+    {% comment %} <div class="announcementbar-bottom-container"> {% endcomment %}
         {% for block in section.blocks %}
-            <div class="announcementbar-bottom-box">
-                <p>{{ block.settings.additional_text }}</p>
+           {% if  block.settings.bottom_text != blank %} <div class="announcementbar-bottom-box" {{ block.shopify_attributes }}>
+              <p> {{ block.settings.bottom_text }}</p>
             </div>
+        {% endif %}
         {% endfor %}
-    </div>
-</div> {% endcomment %}
+    {% comment %} </div> {% endcomment %}
+</div> 
 
 {% schema %}
 {
@@ -182,6 +183,19 @@
           "default": "Shop Now"
         }      
       ]
+    },
+    {
+        "type": "bottomAnnouncementBar",
+        "name":"Bottom Announcement",
+        "limit":1,
+        "settings": [
+             {
+                "type": "textarea",
+                "id": "bottom_text",
+                "label": "Banner Bottom Announcement",
+                "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+            } 
+        ]
     }
 
   ],

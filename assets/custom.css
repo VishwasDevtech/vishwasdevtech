@@ -1,3 +1,29 @@
+/* Jost Regular */
+@font-face {
+  font-family: 'Jost';
+  src: url('https://cdn.shopify.com/s/files/1/0764/0042/7253/files/Jost-Regular.ttf?v=1755943755') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Jost Medium */
+@font-face {
+  font-family: 'Jost';
+  src: url('https://cdn.shopify.com/s/files/1/0764/0042/7253/files/Jost-Medium.ttf?v=1755943754') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lustria';
+  src: url('https://cdn.shopify.com/s/files/1/0764/0042/7253/files/Lustria-Regular.ttf?v=1755948951') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 /* banner announcement bar css  */
 .banner_announcement_wrapper {
     width: 100%;
@@ -129,3 +155,351 @@ img.mobile-banner-image {
     display: inline-block;
     text-decoration: none;
 }
+/* announcement bar bottom start */
+.announcementbar-bottom-wrapper {
+    text-align: center;
+    background: #F5F5F5;
+    padding: 10px;
+}
+.announcementbar-bottom-box p {
+    font-family: 'Jost', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 13.42px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    color: #000000;
+    text-transform: capitalize;
+    margin: 0;
+}
+
+
+
+/* Announcement Bar css End */
+
+/* popup-productGrid.liquid css start */
+.product_Grid_container {
+    max-width: 1338px;
+    margin: 0 auto;
+}
+.productGrid_row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+.productGrid_col {
+    width: calc(100%/ 3 - 20px * 2/3);
+}
+.productGridImage {
+    width: 100%;
+    height: 100%;
+}
+.productGridImage img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+    height: 444px;
+    max-width: 433px;
+}
+.productGrid_header {
+    margin-bottom: 30px;
+}
+.productGrid_header h2 {
+    font-family: 'Lustria', serif;;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 36px;
+    line-height: 43px;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin: 0;
+    color: #000000;
+}
+/* .productGrid_box {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.hotspot-dot {
+    position: absolute;
+    transform: translate(-50%,-50%);
+    background: #F8F8F8E5;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+}
+span.hotspot-dot svg {
+    width: 15px;
+    height: 15px;
+} */
+
+.hotspot_box {
+  position: absolute;
+  /* transform: translate(-50%, -50%); */
+}
+
+.hotspot-dot {
+    background: #F8F8F8E5;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 14px;
+    color: #000000;
+    cursor: pointer;
+    transition: scale 250ms ease 0s, rotate 250ms ease 250ms, translate 250ms ease 500ms;
+}
+
+.hotspot-popup {
+    position: absolute;
+    top: 43px;
+    left: -180px;
+    background: #fff;
+    padding: 20px 10px;
+    box-shadow: 0 4px 15px #0003;
+    display: none;
+    z-index: 10;
+    transition: transform 300ms ease-in-out 0s;
+}
+.hotspot-popup-inner {
+  display: flex;
+  /* align-items: center;  */
+  gap: 10px;
+}
+.hotspot-popup.active {
+    display: block;
+}
+
+.hotspot-popup img {
+    width: 75px;
+    object-fit: cover;
+    display: flex;
+}
+
+.popup-content p.popup-title {
+    font-size: 15px;
+    margin: 0;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: #000000;
+    line-height: 14px;
+    letter-spacing: -1px;
+}
+p.popup-price {
+    font-size: 14px;
+    margin: 10px 0 0;
+    text-align: left;
+    font-weight: 500;
+    color: #000000;
+    font-family: "Jost", sans-serif;
+}
+.productGrid_box {
+    position: relative;
+}
+span.hotspot-dot.active {
+    rotate: 45deg;
+}
+.productGrid_wrapper {
+    position: relative;
+    width: 100%;
+}
+.productInformation_popup_wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+    max-width: 311px;
+    padding: 36.42px 30px 25px;
+}
+.product_infor_grid {
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+.option_box h2 { 
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    line-height: 130%;
+    letter-spacing: 0;
+    color: #333333;
+    margin: 0 0 6.04px;
+    text-transform: capitalize;
+}
+.option-grid-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.color-options {
+    margin-bottom: 11.5px;
+}
+.option_color {
+    width: 50%;
+    text-align: center;
+    position: relative;
+    border: 0.5px solid #000000;
+    padding: 10.96px 7px 11px 8px;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 18px;
+    line-height: 100%;
+    letter-spacing: -0.36px;
+    text-transform: capitalize;
+    color: #000000;
+    cursor: pointer;
+}
+.divider {
+    width: 5px;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-right: 0.5px solid #000000;
+}
+.productInforImage {
+    width: 40%;
+}
+.proImage {
+    width: 100%;
+    height: 100%;
+}
+.productDescription {
+    width: 60%;
+}
+.productInforImage img {
+    width: 100%;
+    max-width: 120px;
+    height: 100%;
+    object-fit: cover;
+    display: flex;
+}
+.option_selection {
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: -0.02em; /* -2% tracking */
+  text-transform: uppercase;
+  text-align: center;
+  vertical-align: middle;
+
+  /* Dropdown styling */
+  width: 100%;
+  padding: 12px 16px;
+  border: 0.5px solid #000;
+  outline: none;
+/* remove default arrow */
+  /* appearance: none;  */
+  /* -webkit-appearance: none; */
+  /* -moz-appearance: none; */
+  cursor: pointer;
+  position: relative;
+  outline: none;
+  box-shadow: none;
+}
+.option_selection:focus,
+.option_selection:active {
+  outline: none;
+  box-shadow: none;
+  border: 1px solid #000; /* keep consistent border */
+}
+
+/* Center the option text as well */
+.option_selection option {
+  text-align: center;
+  font-family: 'Jost', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+}
+
+/* Add custom dropdown arrow */
+.option_selection::after {
+  content: "▼";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  font-size: 12px;
+}
+.product_des_title h2 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    margin: 0 0 20px;
+    color: #000000;
+}
+.product_des_title h3 {
+    font-family: "Lustria", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 120%;
+    letter-spacing: 0px;
+    vertical-align: middle;
+    color: #000000;
+    margin: 0 0 12px;
+}
+.product_des_title p {
+    font-family: "Jost", sans-serif;
+    font-weight: 300;
+    font-style: Light;
+    font-size: 14px;
+    line-height: 110.00000000000001%;
+    letter-spacing: -0.14px;
+    color: #000000;
+    margin: 0;
+}
+.option_box {
+    margin-bottom: 50.21px;
+}
+button.add_cartId {
+    padding: 12px 0;
+    width: 100%;
+    border: none;
+    background: #000000;
+    color: #FFFFFF;
+    font-family: "Jost", sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 16px;
+    line-height: 20.48px;
+    letter-spacing: 0px;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+/* popup-productGrid.liquid css End */
