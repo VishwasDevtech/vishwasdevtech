@@ -5,68 +5,50 @@ document.addEventListener("DOMContentLoaded", () => {
         const popup = dot.parentElement.querySelector(".hotspot-popup");
 
         dot.addEventListener("click", () => {
-            dot.classList.toggle("active"); // rotate icon
-            popup.classList.toggle("active"); // toggle popup with transition
+            dot.classList.toggle("active"); 
+            popup.classList.toggle("active");
         });
     });
 });
-
-
+// POPUP Code
 document.addEventListener("DOMContentLoaded", () => {
     let productInfomation = document.querySelectorAll(".productInfomation");
     let overlaydiv = document.querySelector(".overlaydiv");
-    let productInformationMain = document.querySelectorAll(
-        ".productInformation_popup_wrapper"
-    );
+    let productInformationMain = document.querySelectorAll(".productInformation_popup_wrapper");
 
-    let smallPopupProductId;
-    let mainProductId;
-
-    // Click on product info
     productInfomation.forEach((prInfor) => {
         prInfor.addEventListener("click", () => {
-            smallPopupProductId = prInfor.getAttribute("smallPopUPId");
+            const smallPopupProductId = prInfor.getAttribute("smallPopUPId");
 
-            // hide all popups first
-            productInformationMain.forEach((mainpop) => {
-                mainpop.style.display = "none";
-            });
+            productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
 
-            // show the matching popup
             productInformationMain.forEach((mainpop) => {
-                mainProductId = mainpop.getAttribute("matchedpopupid");
-                if (mainProductId === smallPopupProductId) {
+                if (mainpop.getAttribute("matchedpopupid") === smallPopupProductId) {
                     mainpop.style.display = "block";
                     overlaydiv.style.display = "block";
-                    document.body.style.overflow = "hidden"; // ❌ disable scroll
+                    document.body.style.overflow = "hidden"; 
                 }
             });
         });
     });
 
-    // Close button logic (popup + overlay + enable scroll)
-    productInformationMain.forEach((mainpop) => {
-        let closeBtn = mainpop.querySelector(".popup-close");
-        if (closeBtn) {
-            closeBtn.addEventListener("click", () => {
-                mainpop.style.display = "none";
-                overlaydiv.style.display = "none";
-                document.body.style.overflow = "auto"; // ✅ enable scroll
-            });
-        }
+    document.querySelectorAll(".cross").forEach((btn) => {
+        btn.addEventListener("click", () => {
+            productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
+            overlaydiv.style.display = "none";
+            document.body.style.overflow = "auto"; 
+        });
     });
 
-    // Click on overlay to close popup + overlay + enable scroll
     overlaydiv.addEventListener("click", () => {
-        productInformationMain.forEach((mainpop) => {
-            mainpop.style.display = "none";
-        });
+        productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
         overlaydiv.style.display = "none";
-        document.body.style.overflow = "auto"; // ✅ enable scroll
+        document.body.style.overflow = "auto"; 
     });
 });
+ 
 
-
+// Add To Cart JS code
 document.addEventListener("DOMContentLoaded", () => {
     let productWrappers = document.querySelectorAll(".productInformation_popup_wrapper");
 
@@ -80,7 +62,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let sizeOption = null;
         let selectedVariantId = null;
 
-        // ✅ Select first color by default
         if (productClrOption.length > 0) {
             let firstColor = productClrOption[0];
             firstColor.classList.add("active");
@@ -97,7 +78,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // ✅ Select first size by default
         if (productSizeOption.length > 0) {
             productSizeOption.forEach((select) => {
                 if (select.options.length > 1) {
@@ -125,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 let variantid = variant.getAttribute('variantid');
 
                 if (varianttitle === concateValue) {
-                    selectedVariantId = variantid; // ✅ store matched variant
+                    selectedVariantId = variantid; 
                     variant.classList.add("active");
                 } else {
                     variant.classList.remove("active");
@@ -133,11 +113,10 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
-        // ✅ Add to Cart for this product only
         addtocartbutton.forEach((btn) => {
             btn.addEventListener("click", () => {
                 if (!selectedVariantId) {
-                    console.error("❌ No variant selected for this product");
+                    console.error("No variant selected for this product");
                     return;
                 }
 
@@ -157,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                     .then(response => response.json())
                     .then(data => {
-                        console.log("✅ Added to cart:", data);
+                        console.log(" Added to cart:", data);
                         window.location.href = "/cart";
                     })
                     .catch((error) => {
@@ -165,33 +144,27 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
             });
         });
-
-        // Run once on page load
         optionFunction();
     });
 });
 
 
-
-
 // Announcmentmenu
 document.addEventListener("DOMContentLoaded", () => {
-    let bar = document.querySelector('.bar');            // hamburger icon
-    let cross = document.querySelector('.crossIcon');    // cross icon
-    let annText = document.querySelector('.mobile_menu'); // mobile menu wrapper
+    let bar = document.querySelector('.bar');           
+    let cross = document.querySelector('.crossIcon');   
+    let annText = document.querySelector('.mobile_menu'); 
 
-    // ✅ Bar click → open menu
     bar.addEventListener("click", () => {
-        annText.classList.add("show");  // show menu
-        bar.style.display = "none";     // hide bar
-        cross.style.display = "block";  // show cross
+        annText.classList.add("show");  
+        bar.style.display = "none";   
+        cross.style.display = "block"; 
     });
 
-    // ✅ Cross click → close menu
     cross.addEventListener("click", () => {
-        annText.classList.remove("show"); // hide menu
-        cross.style.display = "none";     // hide cross
-        bar.style.display = "block";      // show bar
+        annText.classList.remove("show"); 
+        cross.style.display = "none"; 
+        bar.style.display = "block";  
     });
 });
  

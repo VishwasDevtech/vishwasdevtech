@@ -26,7 +26,10 @@
                                 </div>{% endif %}
                                 {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
                                     <div class="announcement_link" {{ block.shopify_attributes }}>
-                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}
+
+                                         {% render 'left_arrow' %}
+                                        </a>
                                     </div>
                                 {% endif %}
 
@@ -41,7 +44,10 @@
                                 </div>{% endif %}
                                 {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
                                     <div class="announcement_link" {{ block.shopify_attributes }}>
-                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}
+
+                                         {% render 'left_arrow' %}
+                                        </a>
                                     </div>
                                 {% endif %}
                       {% endfor %}
@@ -64,7 +70,10 @@
             </div>
             <div class="banner-one-link-wrapper" {{ block.shopify_attributes }}>
                 {% if block.settings.additional_banner_link != blank %}
-                    <a href="{{ block.settings.additional_banner_link }}" class="banner-link">{{ block.settings.additional_banner_link_text }}</a>
+                    <a href="{{ block.settings.additional_banner_link }}" class="banner-link">{{ block.settings.additional_banner_link_text }}
+
+                     {% render 'left_arrow' %}
+                    </a>
                 {% endif %}
          </div>
          </div>
@@ -86,7 +95,10 @@
                 </div>
                 {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
                     <div class="banner-grid-link">
-                        <a href="{{ section.settings.banner_link }}" class="banner-link">{{ section.settings.link_text }}</a>
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">
+                            {{ section.settings.link_text }}
+                             {% render 'left_arrow' %}
+                        </a>
                     </div>
                 {% endif %}
             </div>
@@ -101,7 +113,10 @@
                 {% endif %}
                 {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
                     <div class="banner-grid-link mobile_btn">
-                        <a href="{{ section.settings.banner_link }}" class="banner-link">{{ section.settings.link_text }}</a>
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">
+                            {{ section.settings.link_text }} 
+                            {% render 'left_arrow' %}
+                        </a>
                     </div>
                 {% endif %}
             </div>
@@ -112,7 +127,7 @@
 {%comment %} banner section end {% endcomment %}
 
 <div class="announcementbar-bottom-wrapper">
-    {% comment %} <div class="announcementbar-bottom-container"> {% endcomment %}
+
         {% for block in section.blocks %}
            {% if  block.settings.bottom_text != blank %} <div class="announcementbar-bottom-box" {{ block.shopify_attributes }}>
               <p class="desktop_text_btm"> {{ block.settings.bottom_text }}</p>
@@ -120,7 +135,6 @@
             </div>
         {% endif %}
         {% endfor %}
-    {% comment %} </div> {% endcomment %}
 </div> 
 
 {% schema %}

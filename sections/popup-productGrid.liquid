@@ -1,20 +1,25 @@
 {%- style -%}
-  .productGrid_wrapper.{{ section.id }} {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .productGrid_wrapper.{{ section.id }} {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
+
+    @media screen and (min-width: 750px) {
+      .productGrid_wrapper.{{ section.id }} {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+    }
+    @media (max-width:991px) {
+      .productGrid_wrapper.{{ section.id }}  {
+          padding-top: 40px;
+          padding-bottom: 23.74px;
+      }
   }
- 
 {%- endstyle -%}
 
 <div class="productGrid_wrapper {{ section.id }}">
-    <div class="overlaydiv"></div>
+  <div class="overlaydiv"></div>
   <div class="product_Grid_container">
     {% if section.settings.product_heading != blank %}
       <div class="productGrid_header">
@@ -45,8 +50,8 @@
               </span>
 
               <!-- Popup -->
-              <div class="hotspot-popup productInfomation" smallPopUPId ="{{ productGrid.id }}">
-                <div class="hotspot-popup-inner">   
+              <div class="hotspot-popup productInfomation" smallPopUPId="{{ productGrid.id }}">
+                <div class="hotspot-popup-inner">
                   <img
                     src="{{ productGrid.featured_image | img_url: '100x100' }}"
                     alt="{{ productGrid.title }}"
@@ -63,26 +68,28 @@
           </div>
 
           {% comment %} product Information POpUP {% endcomment %}
-          <div class="productInformation_popup_wrapper hidden_popup" matchedpopupId = "{{ productGrid.id }}">
+          <div class="productInformation_popup_wrapper hidden_popup" matchedpopupId="{{ productGrid.id }}">
             <div class="product_details">
-                <div class="cross">{% render 'cross' %}</div>
+              <div class="cross">{% render 'cross' %}</div>
               <div class="product_infor_grid">
                 <div class="productInforImage">
-                    <div class="proImage">
-                  <img
-                    src="{{ productGrid.featured_image | img_url: 'master' }}"
-                    alt="{{ productGrid.title }}"
-                    loading="lazy"
-                    width=""
-                    height=""
-                  >
+                  <div class="proImage">
+                    <img
+                      src="{{ productGrid.featured_image | img_url: 'master' }}"
+                      alt="{{ productGrid.title }}"
+                      loading="lazy"
+                      width=""
+                      height=""
+                    >
                   </div>
                 </div>
                 <div class="productDescription">
                   <div class="product_des_title">
                     <h2>{{ productGrid.title }}</h2>
                     <h3>{{ productGrid.price | money_with_currency }}</h3>
-                    {% if productGrid.description != blank  %}<p>{{ productGrid.description }}</p>{% endif %}
+                    {% if productGrid.description != blank %}
+                      <p>{{ productGrid.description }}</p>
+                    {% endif %}
                   </div>
                 </div>
               </div>
@@ -116,14 +123,16 @@
                     <h2>{{ color_option.name }}</h2>
                     <div class="option-grid-row">
                       {% for value in color_option.values %}
-                        <div class="option_color"
-                             VariantColorId = "{{ productGrid.variants.first.id }}"
-                              OptionColorName= "{{ value }}">
+                        <div
+                          class="option_color"
+                          VariantColorId="{{ productGrid.variants.first.id }}"
+                          OptionColorName="{{ value }}"
+                        >
                           <span
                             class="divider"
                             style="background-color: {{ value | downcase }};"
                           ></span>
-                          
+
                           {{ value }}
                         </div>
                       {% endfor %}
@@ -134,24 +143,27 @@
                 {%- if size_option -%}
                   <div class="size-option">
                     <h2>{{ size_option.name }}</h2>
-                    <select class="option_selection">
-                      <option value="" disabled selected>Choose your size</option>
-                      {% for value in size_option.values %}
-                        <option value="{{ value | escape }}"
-                             index="{{ forloop.index }}" 
-                             VariantColorId = "{{ productGrid.variant.id }}" 
-                            optionSizeName ="{{ value }}"
+                    <div class="select-wrapper">
+                      <select class="option_selection">
+                        <option value="" disabled selected>Choose your size</option>
+                        {% for value in size_option.values %}
+                          <option
+                            value="{{ value | escape }}"
+                            index="{{ forloop.index }}"
+                            VariantColorId="{{ productGrid.variant.id }}"
+                            optionSizeName="{{ value }}"
                             class="sizeOption"
-                            >
-                          {{ value }}
-                        </option>
-                      {% endfor %}
-                    </select>
+                          >
+                            {{ value }}
+                          </option>
+                        {% endfor %}
+                      </select>
+                    </div>
                   </div>
                 {%- endif -%}
               </div>
 
-              <button class="add_cartId">Add To Cart</button>
+              <button class="add_cartId">Add To Cart {%render 'left_arrow' %}</button>
             </div>
           </div>
         </div>
