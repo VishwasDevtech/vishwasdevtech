@@ -84,8 +84,8 @@
           "type": "productGrid",
           "settings": {
             "productId": "chequered-red-shirt",
-            "dot_position_x": 50,
-            "dot_position_y": 50
+            "dot_position_x": 64,
+            "dot_position_y": 22
           }
         },
         "product_grid_KaVUDi": {
