@@ -84,7 +84,7 @@
           "type": "productGrid",
           "settings": {
             "productId": "chequered-red-shirt",
-            "dot_position_x": 64,
+            "dot_position_x": 60,
             "dot_position_y": 22
           }
         },
