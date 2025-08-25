@@ -162,8 +162,12 @@
                   </div>
                 {%- endif -%}
               </div>
+              {% assign freebieProduct = section.settings.productfreeId %}
+              <div class="freeProduct" freeProductId = "{{ freebieProduct.variants.first.id }}" style="display: none;">
+                {{ freebieProduct.variants.first.id  }}
+            </div>
 
-              <button class="add_cartId">Add To Cart {%render 'left_arrow' %}</button>
+              <button class="add_cartId">Add To Cart {% render 'left_arrow' %}</button>
             </div>
           </div>
         </div>
@@ -207,6 +211,11 @@
       "unit": "px",
       "label": "Padding Bottom",
       "default": 51
+    },
+    {
+      "type": "product",
+      "id": "productfreeId",
+      "label": "Add Free Product Product"
     }
   ],
   "blocks": [

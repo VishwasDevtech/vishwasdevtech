@@ -904,6 +904,10 @@ button.add_cartId {
     .productGrid_col {
         width: calc(100%/ 2 - 4px * 1/2);
     }
+    .productInformation_popup_wrapper {
+        max-width: 100%;
+        width: 94%;
+    }
 
 }
 
