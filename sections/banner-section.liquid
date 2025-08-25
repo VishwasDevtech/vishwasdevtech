@@ -4,18 +4,26 @@
 <div class="banner_announcement_wrapper">
     <div class="announement_container">
             <div class="announcemnet_container_box">
+
                 <div class="announcement_grid">
+                                  <div class="menu_bar">
+                                      <span class="bar">  {% render 'menu_bars' %}</span>
+                                      <span class="crossIcon">  {% render 'cross' %}</span>
+                                    </div>
+
                     {% for block in section.blocks %}
                         <div class="announcement_grid_col">
+                          
                             <div class="announcement_grid_col_box">
+                                    
                                 {% if block.settings.additional_logo != blank %}
                                     <div class="announcement_logo" {{ block.shopify_attributes }}>
                                         <img src="{{ block.settings.additional_logo | img_url: 'medium' }}" alt="Logo" width="" height="">
                                     </div>
                                 {% endif %}
-                                <div class="announcement_text" {{ block.shopify_attributes }}>
+                               {%if block.settings.additional_text  != blank %} <div class="announcement_text" {{ block.shopify_attributes }}>
                                     <p>{{ block.settings.additional_text }}</p>
-                                </div>
+                                </div>{% endif %}
                                 {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
                                     <div class="announcement_link" {{ block.shopify_attributes }}>
                                         <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
@@ -26,6 +34,19 @@
                         </div>
                     {% endfor %}
                 </div>
+                <div class="mobile_menu">
+                     {% for block in section.blocks %}
+                     {%if block.settings.additional_text  != blank %} <div class="announcement_text" {{ block.shopify_attributes }}>
+                                    <p>{{ block.settings.additional_text }}</p>
+                                </div>{% endif %}
+                                {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
+                                    <div class="announcement_link" {{ block.shopify_attributes }}>
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}</a>
+                                    </div>
+                                {% endif %}
+                      {% endfor %}
+                </div>
+                
             </div>
     </div>
 </div>
@@ -58,7 +79,10 @@
             <div class="banner-grid-container">
                 <div class="banner-grid-text">
                     <h2>{{ section.settings.banner_heading }}</h2>
-                    <p>{{ section.settings.banner_subheading }}</p>
+                    <p class="desktop_text">{{ section.settings.banner_subheading }}</p>
+                   {%if section.settings.mobile_subheading != blank %}
+                     <p class="mobile_widht_text">{{ section.settings.mobile_subheading }}</p>
+                     {%endif %}
                 </div>
                 {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
                     <div class="banner-grid-link">
@@ -75,6 +99,11 @@
                 {% if section.settings.mobile_image != blank %}
                     <img src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="Mobile Banner Image" class="mobile-banner-image" width="" height="">
                 {% endif %}
+                {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
+                    <div class="banner-grid-link mobile_btn">
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">{{ section.settings.link_text }}</a>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -86,7 +115,8 @@
     {% comment %} <div class="announcementbar-bottom-container"> {% endcomment %}
         {% for block in section.blocks %}
            {% if  block.settings.bottom_text != blank %} <div class="announcementbar-bottom-box" {{ block.shopify_attributes }}>
-              <p> {{ block.settings.bottom_text }}</p>
+              <p class="desktop_text_btm"> {{ block.settings.bottom_text }}</p>
+              <p class="mobile_text_btm"> {{ block.settings.bottomMobile_text }}</p>
             </div>
         {% endif %}
         {% endfor %}
@@ -122,6 +152,12 @@
       "default": "Your banner subtitle goes here"
     },
     {
+      "type": "textarea",
+      "id": "mobile_subheading",
+      "label": "Banner Mobile Subheading",
+      "default": "Your banner subtitle goes here"
+    },
+    {
       "type": "url",
       "id": "banner_link",
       "label": "Banner Link"
@@ -132,6 +168,7 @@
       "label": "Link Text",
       "default": "Shop Now"
     }
+    
   ],
   "blocks": [
     {
@@ -194,7 +231,13 @@
                 "id": "bottom_text",
                 "label": "Banner Bottom Announcement",
                 "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
-            } 
+            },
+             {
+                "type": "textarea",
+                "id": "bottomMobile_text",
+                "label": "Banner Mobile Text Announcement",
+                "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+            }  
         ]
     }
 

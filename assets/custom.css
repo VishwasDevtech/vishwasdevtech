@@ -77,9 +77,66 @@
     color: #000000;
     cursor: pointer;
 }
+.menu_bar, .mobile_menu {
+    display: none;
+}
+.crossIcon {
+  display: none; 
+}
 
+@media (max-width: 1200px) {
+.announement_container {
+    max-width: 1280px;
+    padding: 0 30px;
+}
+}
+@media (max-width: 768px) {
+.announcement_text, .announcement_link {
+    display: none;
+}
+.announcement_grid_col .announcement_grid_col_box {
+    justify-content: center;
+}
+.menu_bar {
+    display: block;
+}
+.announcement_grid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 23px 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+    width: 100%;
+}
+.mobile_menu.show {
+    display: block;
+    animation: slideDown .3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 25px 0;
+}
+.mobile_menu.show .announcement_text, .mobile_menu.show .announcement_link {
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
-
+}
+.mobile_menu.show .announcement_text{
+    margin-bottom: 16px;
+}
+/* Optional nice slide-down effect */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.announement_container {
+    padding: 0 0px;
+}
+.banner_announcement_wrapper {
+    padding: 0;
+}
+}
 /* announcement bar css End */
 
 /* banner-section css start */
@@ -174,8 +231,71 @@ img.mobile-banner-image {
     text-transform: capitalize;
     margin: 0;
 }
-
-
+.mobile_widht_text, .banner-grid-link.mobile_btn .announcementbar-bottom-box p.mobile_text_btm {
+    display: none;
+}
+@media (max-width: 768px) { 
+    .banner-one-image-wrapper {
+    display: none;
+}
+.banner-section-wrapper .banner-section-grid {
+    justify-content: center;
+    flex-direction: column;  
+    gap: unset;
+}
+.banner-grid-col-2 , .banner-section-wrapper .banner-grid-col-1 {
+    padding-left: 0;
+    width: 100%;
+}
+.banner-grid-link, .desktop_text, img.desktop-banner-image {
+    display: none;
+}
+.banner-grid-text h2 {
+    font-size: 30px;
+    margin: 0 0 24px;
+    text-align: center;
+}
+.mobile_widht_text {
+    display: block;
+}
+.banner-grid-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 49px;
+    margin-bottom: 12px;
+}
+.banner-grid-text p {
+    font-size: 16px;
+    line-height: 130%;
+    text-align: center;
+}
+img.mobile-banner-image {
+    display: block;
+}
+.banner-grid-image-container {
+    position: relative;
+}
+.banner-grid-link.mobile_btn {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    justify-content: center;
+}
+.announcementbar-bottom-wrapper {
+    padding: 10px 43.72px;
+}
+.announcementbar-bottom-box p.desktop_text_btm {
+    display: none;
+}
+.announcementbar-bottom-box p {
+    font-size: 14px;
+    line-height: 13.42px;
+}
+}
 
 /* Announcement Bar css End */
 
@@ -220,37 +340,9 @@ img.mobile-banner-image {
     margin: 0;
     color: #000000;
 }
-/* .productGrid_box {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-.hotspot-dot {
-    position: absolute;
-    transform: translate(-50%,-50%);
-    background: #F8F8F8E5;
-    border-radius: 50%;
-    width: 22px;
-    height: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 14px;
-    color: #000000;
-    cursor: pointer;
-}
-span.hotspot-dot svg {
-    width: 15px;
-    height: 15px;
-} */
-
 .hotspot_box {
   position: absolute;
-  /* transform: translate(-50%, -50%); */
 }
-
 .hotspot-dot {
     background: #F8F8F8E5;
     border-radius: 50%;
@@ -321,18 +413,36 @@ span.hotspot-dot.active {
     position: relative;
     width: 100%;
 }
-.productInformation_popup_wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    background: white;
-    transform: translate(-50%, -50%);
-    max-width: 311px;
-    padding: 36.42px 30px 25px;
+
+.overlaydiv {
+  position: fixed; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: none;
+  z-index: 999;
 }
+
+.productInformation_popup_wrapper {
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%);
+  background: #fff; 
+  z-index: 1000;
+  display: none;
+     max-width: 311px;
+    padding: 36.42px 30px 25px;
+    z-index: 999;
+    border-radius: 8px;
+    max-height: 90vh;   
+    overflow-y: auto;   
+}
+
 .product_infor_grid {
     display: flex;
-    /* flex-wrap: wrap; */
     justify-content: center;
     width: 100%;
     gap: 8px;
@@ -404,12 +514,11 @@ span.hotspot-dot.active {
   font-weight: 400;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: -0.02em; /* -2% tracking */
+  letter-spacing: -0.02em; 
   text-transform: uppercase;
   text-align: center;
   vertical-align: middle;
 
-  /* Dropdown styling */
   width: 100%;
   padding: 12px 16px;
   border: 0.5px solid #000;
@@ -427,10 +536,10 @@ span.hotspot-dot.active {
 .option_selection:active {
   outline: none;
   box-shadow: none;
-  border: 1px solid #000; /* keep consistent border */
+  border: 1px solid #000; 
 }
 
-/* Center the option text as well */
+
 .option_selection option {
   text-align: center;
   font-family: 'Jost', sans-serif;
@@ -439,8 +548,6 @@ span.hotspot-dot.active {
   text-transform: uppercase;
   letter-spacing: -0.02em;
 }
-
-/* Add custom dropdown arrow */
 .option_selection::after {
   content: "▼";
   position: absolute;
@@ -500,6 +607,14 @@ button.add_cartId {
     text-align: center;
     vertical-align: middle;
     text-transform: uppercase;
+    cursor: pointer;
+}
+.productInformation_popup_wrapper.hidden_popup {
+    display: none;
+}
+.cross {
+    float: right;
+    display: block;
     cursor: pointer;
 }
 /* popup-productGrid.liquid css End */

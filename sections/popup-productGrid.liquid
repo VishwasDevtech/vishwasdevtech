@@ -14,6 +14,7 @@
 {%- endstyle -%}
 
 <div class="productGrid_wrapper {{ section.id }}">
+    <div class="overlaydiv"></div>
   <div class="product_Grid_container">
     {% if section.settings.product_heading != blank %}
       <div class="productGrid_header">
@@ -44,8 +45,8 @@
               </span>
 
               <!-- Popup -->
-              <div class="hotspot-popup productInfomation">
-                <div class="hotspot-popup-inner">
+              <div class="hotspot-popup productInfomation" smallPopUPId ="{{ productGrid.id }}">
+                <div class="hotspot-popup-inner">   
                   <img
                     src="{{ productGrid.featured_image | img_url: '100x100' }}"
                     alt="{{ productGrid.title }}"
@@ -62,8 +63,9 @@
           </div>
 
           {% comment %} product Information POpUP {% endcomment %}
-          <div class="productInformation_popup_wrapper">
+          <div class="productInformation_popup_wrapper hidden_popup" matchedpopupId = "{{ productGrid.id }}">
             <div class="product_details">
+                <div class="cross">{% render 'cross' %}</div>
               <div class="product_infor_grid">
                 <div class="productInforImage">
                     <div class="proImage">
