@@ -108,8 +108,8 @@
           "type": "productGrid",
           "settings": {
             "productId": "dark-denim-top",
-            "dot_position_x": 50,
-            "dot_position_y": 50
+            "dot_position_x": 78,
+            "dot_position_y": 38
           }
         }
       },
