@@ -92,8 +92,8 @@
           "type": "productGrid",
           "settings": {
             "productId": "classic-leather-jacket",
-            "dot_position_x": 50,
-            "dot_position_y": 50
+            "dot_position_x": 76,
+            "dot_position_y": 20
           }
         },
         "product_grid_MK8pgj": {
