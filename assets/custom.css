@@ -442,7 +442,8 @@ img.mobile-banner-image {
         text-align: center;
     }
 
-    .mobile_widht_text {
+    .mobile_widht_text,
+    .announcementbar-bottom-box p.mobile_text_btm {
         display: block;
     }
 
@@ -468,7 +469,7 @@ img.mobile-banner-image {
         position: relative;
     }
 
-    .banner-grid-link.mobile_btn {
+    /* .banner-grid-link.mobile_btn {
         display: flex;
         position: absolute;
         top: 50%;
@@ -476,6 +477,15 @@ img.mobile-banner-image {
         transform: translate(-50%, -50%);
         width: 100%;
         justify-content: center;
+    } */
+    .banner-grid-link.mobile_btn {
+        display: flex;
+        top: 76%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        justify-content: center;
+        left: 50%;
     }
 
     .announcementbar-bottom-wrapper {
@@ -490,7 +500,8 @@ img.mobile-banner-image {
         font-size: 14px;
         line-height: 13.42px;
     }
-    .banner-grid-link{
+
+    .banner-grid-link {
         margin: 0;
         padding: 0;
     }
@@ -904,6 +915,7 @@ button.add_cartId {
     .productGrid_col {
         width: calc(100%/ 2 - 4px * 1/2);
     }
+
     .productInformation_popup_wrapper {
         max-width: 100%;
         width: 94%;
@@ -913,7 +925,7 @@ button.add_cartId {
 
 
 .no-scroll {
-  overflow: hidden;
+    overflow: hidden;
 }
 
 /* popup-productGrid.liquid css End */
