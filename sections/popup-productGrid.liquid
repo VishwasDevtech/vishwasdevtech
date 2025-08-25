@@ -45,12 +45,12 @@
               class="hotspot_box"
               style="top: {{ block.settings.dot_position_y }}%; left: {{ block.settings.dot_position_x }}%;"
             >
-              <span class="hotspot-dot">
+              <span class="hotspot-dot"  smallPopUPId="{{ productGrid.id }}">
                 {% render 'popupIcon' %}
               </span>
 
               <!-- Popup -->
-              <div class="hotspot-popup productInfomation" smallPopUPId="{{ productGrid.id }}">
+              {% comment %} <div class="hotspot-popup productInfomation" smallPopUPId="{{ productGrid.id }}" style="display: none;">
                 <div class="hotspot-popup-inner">
                   <img
                     src="{{ productGrid.featured_image | img_url: '100x100' }}"
@@ -63,7 +63,7 @@
                     <p class="popup-price">{{ productGrid.price | money }}</p>
                   </div>
                 </div>
-              </div>
+              </div> {% endcomment %}
             </div>
           </div>
 

@@ -1,54 +1,44 @@
+// *** Product Details POPup Show js Start
 document.addEventListener("DOMContentLoaded", () => {
-    const dots = document.querySelectorAll(".hotspot-dot");
-
-    dots.forEach(dot => {
-        const popup = dot.parentElement.querySelector(".hotspot-popup");
-
-        dot.addEventListener("click", () => {
-            dot.classList.toggle("active"); 
-            popup.classList.toggle("active");
-        });
-    });
-});
-// POPUP Code
-document.addEventListener("DOMContentLoaded", () => {
-    let productInfomation = document.querySelectorAll(".productInfomation");
     let overlaydiv = document.querySelector(".overlaydiv");
     let productInformationMain = document.querySelectorAll(".productInformation_popup_wrapper");
+    let dots = document.querySelectorAll(".hotspot-dot");
 
-    productInfomation.forEach((prInfor) => {
-        prInfor.addEventListener("click", () => {
-            const smallPopupProductId = prInfor.getAttribute("smallPopUPId");
+    dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+            const smallPopupProductId = dot.getAttribute("smallPopUPId");
+            console.log(smallPopupProductId);
+            productInformationMain.forEach(mainpop => (mainpop.style.display = "none"));
 
-            productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
-
-            productInformationMain.forEach((mainpop) => {
+            productInformationMain.forEach(mainpop => {
                 if (mainpop.getAttribute("matchedpopupid") === smallPopupProductId) {
                     mainpop.style.display = "block";
                     overlaydiv.style.display = "block";
-                    document.body.style.overflow = "hidden"; 
+                    document.body.classList.add("no-scroll");
                 }
             });
         });
     });
 
-    document.querySelectorAll(".cross").forEach((btn) => {
+    document.querySelectorAll(".cross").forEach(btn => {
         btn.addEventListener("click", () => {
-            productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
+            productInformationMain.forEach(mainpop => (mainpop.style.display = "none"));
             overlaydiv.style.display = "none";
-            document.body.style.overflow = "auto"; 
+            document.body.classList.remove("no-scroll");
         });
     });
 
     overlaydiv.addEventListener("click", () => {
-        productInformationMain.forEach((mainpop) => (mainpop.style.display = "none"));
+        productInformationMain.forEach(mainpop => (mainpop.style.display = "none"));
         overlaydiv.style.display = "none";
-        document.body.style.overflow = "auto"; 
+        document.body.classList.remove("no-scroll");
     });
 });
- 
 
-// Add To Cart JS code
+
+// *** Product Details POPup Show js End
+
+// *** Add To Cart JS code
 document.addEventListener("DOMContentLoaded", () => {
     let productWrappers = document.querySelectorAll(".productInformation_popup_wrapper");
 
@@ -182,4 +172,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
  
+// *** Add to cart Js End 
 

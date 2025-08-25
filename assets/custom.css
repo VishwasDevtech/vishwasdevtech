@@ -911,4 +911,9 @@ button.add_cartId {
 
 }
 
+
+.no-scroll {
+  overflow: hidden;
+}
+
 /* popup-productGrid.liquid css End */
