@@ -1,0 +1,266 @@
+{% comment %}
+  announcement bar section start
+{% endcomment %}
+<div class="banner_announcement_wrapper">
+    <div class="announement_container">
+            <div class="announcemnet_container_box">
+
+                <div class="announcement_grid">
+                                  <div class="menu_bar">
+                                      <span class="bar">  {% render 'menu_bars' %}</span>
+                                      <span class="crossIcon">  {% render 'cross' %}</span>
+                                    </div>
+
+                    {% for block in section.blocks %}
+                        <div class="announcement_grid_col">
+                          
+                            <div class="announcement_grid_col_box">
+                                    
+                                {% if block.settings.additional_logo != blank %}
+                                    <div class="announcement_logo" {{ block.shopify_attributes }}>
+                                        <img src="{{ block.settings.additional_logo | img_url: 'medium' }}" alt="Logo" width="" height="">
+                                    </div>
+                                {% endif %}
+                               {%if block.settings.additional_text  != blank %} <div class="announcement_text" {{ block.shopify_attributes }}>
+                                    <p>{{ block.settings.additional_text }}</p>
+                                </div>{% endif %}
+                                {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
+                                    <div class="announcement_link" {{ block.shopify_attributes }}>
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}
+
+                                         {% render 'left_arrow' %}
+                                        </a>
+                                    </div>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="mobile_menu">
+                     {% for block in section.blocks %}
+                     {%if block.settings.additional_text  != blank %} <div class="announcement_text" {{ block.shopify_attributes }}>
+                                    <p>{{ block.settings.additional_text }}</p>
+                                </div>{% endif %}
+                                {% if block.settings.additional_link != blank and block.settings.additional_link_text != blank %}
+                                    <div class="announcement_link" {{ block.shopify_attributes }}>
+                                        <a href="{{ block.settings.additional_link }}">{{ block.settings.additional_link_text }}
+
+                                         {% render 'left_arrow' %}
+                                        </a>
+                                    </div>
+                                {% endif %}
+                      {% endfor %}
+                </div>
+                
+            </div>
+    </div>
+</div>
+{% comment %} 
+        announcement bar section end
+{% endcomment %}
+
+{% comment %} banner-1 section start {% endcomment %}
+ {% for block in section.blocks %}
+         <div class="banner-one-wrapper" {{ block.shopify_attributes }}>
+            <div class="banner-one-image-wrapper">
+                {% if block.settings.additional_banner != blank %}
+                        <img src="{{ block.settings.additional_banner | img_url: 'master' }}" alt="Banner Image" class="desktop-banner-image" width="" height="">
+                {% endif %}
+            </div>
+            <div class="banner-one-link-wrapper" {{ block.shopify_attributes }}>
+                {% if block.settings.additional_banner_link != blank %}
+                    <a href="{{ block.settings.additional_banner_link }}" class="banner-link">{{ block.settings.additional_banner_link_text }}
+
+                     {% render 'left_arrow' %}
+                    </a>
+                {% endif %}
+         </div>
+         </div>
+{%endfor %}
+
+{% comment %} banner-1 section end {% endcomment %}
+{% comment %}banner section start {% endcomment %}
+
+<div class="banner-section-wrapper">
+    <div class="banner-section-grid">
+        <div class="banner-grid-col-1">
+            <div class="banner-grid-container">
+                <div class="banner-grid-text">
+                    <h2>{{ section.settings.banner_heading }}</h2>
+                    <p class="desktop_text">{{ section.settings.banner_subheading }}</p>
+                   {%if section.settings.mobile_subheading != blank %}
+                     <p class="mobile_widht_text">{{ section.settings.mobile_subheading }}</p>
+                     {%endif %}
+                </div>
+                {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
+                    <div class="banner-grid-link">
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">
+                            {{ section.settings.link_text }}
+                             {% render 'left_arrow' %}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="banner-grid-col-2">
+            <div class="banner-grid-image-container">
+                {% if section.settings.banner_image != blank %}
+                    <img src="{{ section.settings.banner_image | img_url: 'master' }}" alt="Banner Image" class="desktop-banner-image" width="" height="">
+                {% endif %}
+                {% if section.settings.mobile_image != blank %}
+                    <img src="{{ section.settings.mobile_image | img_url: 'master' }}" alt="Mobile Banner Image" class="mobile-banner-image" width="" height="">
+                {% endif %}
+                {% if section.settings.banner_link != blank and section.settings.link_text != blank %}
+                    <div class="banner-grid-link mobile_btn">
+                        <a href="{{ section.settings.banner_link }}" class="banner-link">
+                            {{ section.settings.link_text }} 
+                            {% render 'left_arrow' %}
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{%comment %} banner section end {% endcomment %}
+
+<div class="announcementbar-bottom-wrapper">
+
+        {% for block in section.blocks %}
+           {% if  block.settings.bottom_text != blank %} <div class="announcementbar-bottom-box" {{ block.shopify_attributes }}>
+              <p class="desktop_text_btm"> {{ block.settings.bottom_text }}</p>
+              <p class="mobile_text_btm"> {{ block.settings.bottomMobile_text }}</p>
+            </div>
+        {% endif %}
+        {% endfor %}
+</div> 
+
+{% schema %}
+{
+  "name": "Custom Banner",
+  "class": "custom-banner-section",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "banner_image",
+      "label": "Desktop Banner Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "mobile_image",
+      "label": "Mobile Banner Image"
+    },
+    {
+      "type": "text",
+      "id": "banner_heading",
+      "label": "Banner Heading",
+      "default": "Your Banner Title"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_subheading",
+      "label": "Banner Subheading",
+      "default": "Your banner subtitle goes here"
+    },
+    {
+      "type": "textarea",
+      "id": "mobile_subheading",
+      "label": "Banner Mobile Subheading",
+      "default": "Your banner subtitle goes here"
+    },
+    {
+      "type": "url",
+      "id": "banner_link",
+      "label": "Banner Link"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "Shop Now"
+    }
+    
+  ],
+  "blocks": [
+    {
+      "type": "announeement-bar",
+      "name": "Additional Announcement",
+      "settings": [
+         {
+          "type": "image_picker",
+          "id": "additional_logo",
+          "label": "Additional Logo"
+        },
+        {
+          "type": "text",
+          "id": "additional_text",
+          "label": "Additional Text",
+          "default": "Some extra information"
+        },
+        {
+          "type": "url",
+          "id": "additional_link",
+          "label": "Additional Link"
+        },
+        {
+          "type": "text",
+          "id": "additional_link_text",
+          "label": "Additional Link Text",
+          "default": "choose gift"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "name": "Additional Banner",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "additional_banner",
+          "label": "Additional Banner"
+        },
+        {
+          "type": "url",
+          "id": "additional_banner_link",
+          "label": "Additional Banner Link"
+        },
+        {
+          "type": "text",
+          "id": "additional_banner_link_text",
+          "label": "Additional Banner Link Text",
+          "default": "Shop Now"
+        }      
+      ]
+    },
+    {
+        "type": "bottomAnnouncementBar",
+        "name":"Bottom Announcement",
+        "limit":1,
+        "settings": [
+             {
+                "type": "textarea",
+                "id": "bottom_text",
+                "label": "Banner Bottom Announcement",
+                "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+            },
+             {
+                "type": "textarea",
+                "id": "bottomMobile_text",
+                "label": "Banner Mobile Text Announcement",
+                "default": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+            }  
+        ]
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Custom Banner",
+      "category": "Banners"
+    }
+  ]
+}
+{% endschema %}

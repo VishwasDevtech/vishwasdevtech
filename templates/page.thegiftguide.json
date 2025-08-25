@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "banner_section_hYhgBX": {
+      "type": "banner-section",
+      "blocks": {
+        "announeement_bar_KnAzjJ": {
+          "type": "announeement-bar",
+          "settings": {
+            "additional_logo": "shopify://shop_images/Group_1000007777.png",
+            "additional_text": "Find the ideal gift for your loved ones.",
+            "additional_link": "#",
+            "additional_link_text": "choose gift"
+          }
+        },
+        "banner_Lp8gzJ": {
+          "type": "banner",
+          "settings": {
+            "additional_banner": "shopify://shop_images/Frame.png",
+            "additional_banner_link": "",
+            "additional_banner_link_text": "Shop Now"
+          }
+        },
+        "bottom_announcement_bar_MF7QMD": {
+          "type": "bottomAnnouncementBar",
+          "settings": {
+            "bottom_text": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL",
+            "bottomMobile_text": "SUSTAINABLE, ETHICALLY MADE ACTIVEWEAR"
+          }
+        }
+      },
+      "block_order": [
+        "announeement_bar_KnAzjJ",
+        "banner_Lp8gzJ",
+        "bottom_announcement_bar_MF7QMD"
+      ],
+      "name": "Custom Banner",
+      "settings": {
+        "banner_image": "shopify://shop_images/Frame_1.png",
+        "mobile_image": "shopify://shop_images/Frame_3.png",
+        "banner_heading": "The Gift Guide",
+        "banner_subheading": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+        "mobile_subheading": "Discover Joy: Your Ultimate Holiday Gift Destination.",
+        "banner_link": "#",
+        "link_text": "Shop Now"
+      }
+    },
+    "popup_product_grid_FzgjLA": {
+      "type": "popup-productGrid",
+      "blocks": {
+        "product_grid_eRFAdR": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "black-leather-bag",
+            "dot_position_x": 52,
+            "dot_position_y": 57
+          }
+        },
+        "product_grid_h3ntMy": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "blue-silk-tuxedo",
+            "dot_position_x": 80,
+            "dot_position_y": 50
+          }
+        },
+        "product_grid_MmQCzX": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "chequered-red-shirt",
+            "dot_position_x": 60,
+            "dot_position_y": 22
+          }
+        },
+        "product_grid_KaVUDi": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "classic-leather-jacket",
+            "dot_position_x": 76,
+            "dot_position_y": 20
+          }
+        },
+        "product_grid_MK8pgj": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "classic-varsity-top",
+            "dot_position_x": 50,
+            "dot_position_y": 25
+          }
+        },
+        "product_grid_xgtaLx": {
+          "type": "productGrid",
+          "settings": {
+            "productId": "dark-denim-top",
+            "dot_position_x": 78,
+            "dot_position_y": 38
+          }
+        }
+      },
+      "block_order": [
+        "product_grid_eRFAdR",
+        "product_grid_h3ntMy",
+        "product_grid_MmQCzX",
+        "product_grid_KaVUDi",
+        "product_grid_MK8pgj",
+        "product_grid_xgtaLx"
+      ],
+      "name": "PopUp ProductGrid",
+      "settings": {
+        "product_heading": "Tisso vison in the wild",
+        "padding_top": 90,
+        "padding_bottom": 51,
+        "productfreeId": "dark-winter-jacket"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "banner_section_hYhgBX",
+    "popup_product_grid_FzgjLA"
+  ]
+}
